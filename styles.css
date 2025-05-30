@@ -1,10 +1,11 @@
 :root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --text-color: #1f2937;
-    --light-text: #6b7280;
-    --background: #ffffff;
-    --section-bg: #f3f4f6;
+    --primary-color: #00b4d8;
+    --secondary-color: #0096c7;
+    --text-color: #e5e7eb;
+    --light-text: #9ca3af;
+    --background: #111827;
+    --section-bg: #1f2937;
+    --card-bg: #374151;
     --max-width: 1200px;
 }
 
@@ -18,6 +19,7 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
+    background: var(--background);
 }
 
 .container {
@@ -28,8 +30,9 @@ body {
 
 /* Header Styles */
 .header {
-    background: var(--background);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     position: fixed;
     width: 100%;
     top: 0;
@@ -50,6 +53,7 @@ body {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
 }
 
 .nav-links {
@@ -61,33 +65,52 @@ body {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--background), var(--section-bg));
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 6rem 2rem;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 180, 216, 0.1) 0%, transparent 50%);
 }
 
 .hero-content {
     max-width: 800px;
     color: white;
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
+    background: linear-gradient(120deg, #fff, var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 180, 216, 0.3);
 }
 
 .tagline {
@@ -99,17 +122,20 @@ body {
 /* Button Styles */
 .cta-button {
     display: inline-block;
-    background: white;
-    color: var(--primary-color);
+    background: var(--primary-color);
+    color: var(--background);
     padding: 1rem 2rem;
     border-radius: 0.5rem;
     text-decoration: none;
     font-weight: 600;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
 }
 
 .cta-button:hover {
     transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 180, 216, 0.5);
+    background: var(--secondary-color);
 }
 
 /* Section Styles */
@@ -125,6 +151,7 @@ h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
+    color: var(--primary-color);
 }
 
 /* Features */
@@ -138,6 +165,13 @@ h2 {
 .feature {
     text-align: center;
     padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
 }
 
 .feature h3 {
@@ -154,15 +188,18 @@ h2 {
 }
 
 .service-card {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 180, 216, 0.1);
 }
 
 .service-card:hover {
     transform: translateY(-5px);
+    border-color: rgba(0, 180, 216, 0.3);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
 }
 
 .service-card h3 {
@@ -173,14 +210,16 @@ h2 {
 /* Contact Section */
 .contact {
     text-align: center;
+    background: var(--background);
 }
 
 /* Footer */
 .footer {
-    background: var(--text-color);
-    color: white;
+    background: var(--section-bg);
+    color: var(--light-text);
     padding: 2rem 0;
     text-align: center;
+    border-top: 1px solid rgba(0, 180, 216, 0.1);
 }
 
 /* Responsive Design */

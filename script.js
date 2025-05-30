@@ -21,11 +21,13 @@ window.addEventListener('scroll', () => {
     
     // Add shadow and background opacity based on scroll position
     if (currentScroll > 50) {
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+        header.style.backgroundColor = 'rgba(17, 24, 39, 0.95)';
+        header.style.backdropFilter = 'blur(12px)';
     } else {
-        header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
-        header.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+        header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.2)';
+        header.style.backgroundColor = 'rgba(17, 24, 39, 0.8)';
+        header.style.backdropFilter = 'blur(8px)';
     }
     
     lastScroll = currentScroll;
