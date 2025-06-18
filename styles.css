@@ -213,11 +213,53 @@ h2 {
     background: var(--background);
 }
 
-.info-list {
-    display: inline-block;
+/* Privacy/Support Page Styles */
+.privacy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-top: 120px; /* Adjusted from margin-top */
+    padding-bottom: 4rem;
+}
+
+.privacy-container h1 {
+    margin-bottom: 2rem;
+    color: var(--text-color);
     text-align: left;
-    margin-top: 1rem;
+}
+
+.privacy-container h2 {
+    margin: 2rem 0 1rem;
+    color: var(--primary-color);
+    text-align: left;
+}
+
+.privacy-container p, 
+.privacy-container li {
+    line-height: 1.6;
+    color: var(--text-color);
+    text-align: left;
+}
+
+.privacy-container p {
     margin-bottom: 1rem;
+}
+
+.privacy-container ul {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    text-align: left;
+}
+
+.privacy-container li {
+    margin-bottom: 0.5rem;
+}
+
+.last-updated {
+    font-style: italic;
+    color: var(--light-text);
+    margin-bottom: 2rem;
+    text-align: left;
 }
 
 /* Footer */
