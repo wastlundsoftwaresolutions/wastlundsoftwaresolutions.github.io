@@ -213,6 +213,13 @@ h2 {
     background: var(--background);
 }
 
+.info-list {
+    display: inline-block;
+    text-align: left;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 /* Footer */
 .footer {
     background: var(--section-bg);
