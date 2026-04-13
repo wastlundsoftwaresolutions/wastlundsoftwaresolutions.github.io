@@ -218,7 +218,8 @@ h2 {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    padding-top: 120px; /* Adjusted from margin-top */
+    padding-top: 120px;
+    /* Adjusted from margin-top */
     padding-bottom: 4rem;
 }
 
@@ -234,7 +235,7 @@ h2 {
     text-align: left;
 }
 
-.privacy-container p, 
+.privacy-container p,
 .privacy-container li {
     line-height: 1.6;
     color: var(--text-color);
@@ -336,7 +337,8 @@ h2 {
     flex-wrap: wrap;
 }
 
-.privacy-link, .app-store-link {
+.privacy-link,
+.app-store-link {
     padding: 0.75rem 1.5rem;
     border-radius: 6px;
     text-decoration: none;
@@ -366,11 +368,11 @@ h2 {
     .products-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .product-card {
         padding: 1.5rem;
     }
-    
+
     .app-icon {
         width: 100px;
         height: 100px;
@@ -382,12 +384,12 @@ h2 {
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .tagline {
         font-size: 1.2rem;
     }
-    
+
     .nav-links {
         display: none;
     }
-} 
+}
