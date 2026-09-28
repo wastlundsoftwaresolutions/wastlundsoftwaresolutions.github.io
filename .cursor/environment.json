@@ -1,4 +1,11 @@
 {
   "name": "Wastlund Software Solutions site",
-  "install": "python3 .github/scripts/verify_site.py"
+  "install": "python3 -c \"import sys; raise SystemExit(0 if sys.version_info >= (3, 9) else 'Python 3.9+ required')\"",
+  "start": "bash .cursor/start-site.sh",
+  "ports": [
+    {
+      "name": "site",
+      "port": 8000
+    }
+  ]
 }
