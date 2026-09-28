@@ -1,11 +1,10 @@
 # Required pages exist and local links resolve. main is the live site.
+# Push, not pull_request: Cursor's Review and Fix Verify triggers only hear
+# workflow runs that GitHub started from a push.
 name: Verify
 
 on:
-  pull_request:
   push:
-    branches:
-      - main
 
 jobs:
   verify:
