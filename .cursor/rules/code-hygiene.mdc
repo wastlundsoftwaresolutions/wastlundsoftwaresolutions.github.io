@@ -1,0 +1,27 @@
+---
+description: Comment and file-shape rules for pages an agent adds or edits
+globs: "**/*.{html,css,js}"
+alwaysApply: false
+---
+
+# Code hygiene
+
+When the issue says it is a hygiene pass, apply this rule to every line in the files it names. Visible copy, layout, and link targets stay the same. Leave every other file alone.
+
+On any other task, apply this rule only to lines you add or change. Leave the surrounding code as it is.
+
+## Comments
+
+- At most two lines.
+- Say why the code is this way, or which constraint a later edit has to keep.
+- Delete a comment that repeats the next line.
+- Do not leave `TODO`, `FIXME`, or commented-out markup. Record a follow-up under Unresolved concerns in the pull request.
+
+## File shape
+
+Match the nearest page.
+
+- An HTML page is ordered: doctype, head (charset, viewport, title, stylesheet), header, main, footer, then `script.js` when the page needs store links.
+- A new page uses the existing class names. Do not invent a second visual system.
+- A style used by one element stays next to the rule it modifies. A style used by two pages goes in `styles.css`.
+- Do not add `console.log`.

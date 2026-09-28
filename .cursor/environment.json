@@ -1,0 +1,4 @@
+{
+  "name": "Wastlund Software Solutions site",
+  "install": "python3 .github/scripts/verify_site.py"
+}

@@ -1,0 +1,13 @@
+---
+description: Wastlund Software Solutions site boundaries
+alwaysApply: true
+---
+
+# Architecture
+
+- This is a static site. Do not add a framework, a package manager, or a build step.
+- `main` is the live GitHub Pages site. Never push to `main`.
+- Pages share `styles.css` and the existing header and footer classes.
+- Store buttons use `smart-store-link` with `data-ios-url` and `data-android-url`.
+- Do not edit `googlef400cb02eede5b06.html`. Do not invent product claims, prices, or contact details.
+- Never commit a secret. When implementing an issue with no open pull request, open a draft against the branch you started from. If the task names a different base branch, use that. On an existing pull request, push to that branch or comment. Do not open another pull request.

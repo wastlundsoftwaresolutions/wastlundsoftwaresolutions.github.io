@@ -1,0 +1,14 @@
+---
+description: Pages, layout, and links
+globs: "**/*.{html,css}"
+alwaysApply: false
+---
+
+# UI
+
+- Reuse the header, section, card, and button classes in `styles.css`.
+- Every page has a title, a viewport meta tag, and a link back to the home page.
+- Images have alt text. Controls and links have visible text.
+- Keep text inside the card or column. Do not let a long title overflow.
+- A layout change has to work on a narrow phone width and on a desktop window.
+- Confirm store links point at the product named in that card.

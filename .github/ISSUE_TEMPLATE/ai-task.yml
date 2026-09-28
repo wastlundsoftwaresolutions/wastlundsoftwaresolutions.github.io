@@ -1,0 +1,42 @@
+name: AI task
+description: Feature, bug, or notes for a Cloud Agent to implement
+title: "[AI] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Creating this issue does not start an agent. When the notes are specific enough to implement, comment `ai-ready` on the issue. The comment must be exactly that. You still review and merge the draft pull request.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - Feature
+        - Bug
+        - Meeting notes
+    validations:
+      required: true
+  - type: textarea
+    id: desired
+    attributes:
+      label: Desired behavior
+      description: What a visitor should see or be able to do, or paste the notes.
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current behavior
+      description: What happens today. Write "unknown" if this is new.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Observable checks. Leave blank only for raw notes; the agent must list criteria before coding those.
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Screenshots, links, and anything that must not change. Name the base branch when it is not main.
