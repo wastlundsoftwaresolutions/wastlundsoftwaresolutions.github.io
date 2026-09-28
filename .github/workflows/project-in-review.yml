@@ -1,0 +1,127 @@
+# When a pull request opens, move each linked issue to In Review on its project.
+# Falls back to In Progress if that board has not been renamed yet.
+name: Move linked issue to In Review
+
+on:
+  pull_request:
+    types: [opened, edited, reopened]
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.WSS_PROJECT_TOKEN }}
+          script: |
+            const preferred = ["In Review", "In Progress"]
+            const link = /(?:^|\s)(?:fix(?:e[sd])?|close[sd]?|resolve[sd]?)\s+#(\d+)/gi
+
+            const itemFields = `
+              id
+              number
+              projectItems(first: 20) {
+                nodes {
+                  id
+                  project {
+                    id
+                    field(name: "Status") {
+                      ... on ProjectV2SingleSelectField {
+                        id
+                        options { id name }
+                      }
+                    }
+                  }
+                }
+              }
+            `
+
+            const prData = await github.graphql(
+              `query($owner: String!, $repo: String!, $number: Int!) {
+                repository(owner: $owner, name: $repo) {
+                  pullRequest(number: $number) {
+                    body
+                    closingIssuesReferences(first: 10) {
+                      nodes { ${itemFields} }
+                    }
+                  }
+                }
+              }`,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                number: context.payload.pull_request.number,
+              }
+            )
+
+            const pullRequest = prData.repository.pullRequest
+            const issues = [...(pullRequest.closingIssuesReferences.nodes ?? [])]
+            const seen = new Set(issues.map((issue) => issue.number))
+            const body = pullRequest.body ?? ""
+            for (const match of body.matchAll(link)) {
+              const issueNumber = Number(match[1])
+              if (seen.has(issueNumber)) continue
+              seen.add(issueNumber)
+              const issueData = await github.graphql(
+                `query($owner: String!, $repo: String!, $number: Int!) {
+                  repository(owner: $owner, name: $repo) {
+                    issue(number: $number) { ${itemFields} }
+                  }
+                }`,
+                {
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  number: issueNumber,
+                }
+              )
+              if (issueData.repository.issue) issues.push(issueData.repository.issue)
+            }
+
+            if (issues.length === 0) {
+              core.warning("No linked issue. The pull request body needs a line like Fixes #123.")
+              return
+            }
+
+            let moved = 0
+            for (const issue of issues) {
+              for (const item of issue.projectItems.nodes ?? []) {
+                const field = item.project.field
+                if (!field?.options) continue
+                const option = preferred
+                  .map((name) => field.options.find((choice) => choice.name === name))
+                  .find(Boolean)
+                if (!option) {
+                  core.warning(`Issue #${issue.number} has no In Review or In Progress status.`)
+                  continue
+                }
+                await github.graphql(
+                  `mutation($project: ID!, $item: ID!, $field: ID!, $option: String!) {
+                    updateProjectV2ItemFieldValue(input: {
+                      projectId: $project
+                      itemId: $item
+                      fieldId: $field
+                      value: { singleSelectOptionId: $option }
+                    }) {
+                      projectV2Item { id }
+                    }
+                  }`,
+                  {
+                    project: item.project.id,
+                    item: item.id,
+                    field: field.id,
+                    option: option.id,
+                  }
+                )
+                moved += 1
+                core.notice(`Issue #${issue.number} set to ${option.name}.`)
+              }
+            }
+
+            if (moved === 0) {
+              core.warning("The linked issue is not on a project board yet.")
+            }
