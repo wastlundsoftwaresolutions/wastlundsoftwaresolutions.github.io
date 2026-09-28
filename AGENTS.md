@@ -83,4 +83,6 @@ When implementing an issue with no open pull request, open a draft. When one alr
 
 Run `python3 .github/scripts/verify_site.py` before opening or updating a pull request. If it fails because of your change, fix it and run it again. Do not open a pull request when that command fails. Do not report success with a red check.
 
+`bash .cursor/start-site.sh` serves this repository at http://127.0.0.1:8000. If that port is already open, the command leaves the existing server running.
+
 Do not push to `main`. This branch is the live site. Do not claim a page was checked in a browser unless you actually loaded it.
