@@ -25,65 +25,85 @@
     <main>
         <div class="privacy-container">
             <h1>Operation Vitality Privacy Policy</h1>
-            <p class="last-updated">Last Updated: March 16, 2026</p>
+            <p class="last-updated">Last Updated: [SUBMISSION DATE]</p>
 
-            <p>This Privacy Policy explains how Operation Vitality ("Application") collects, uses, stores, and discloses information, including Health Data. The Application is provided by Wastlund Software Solutions, LLC ("Service Provider").</p>
+            <p>This Privacy Policy explains how Operation Vitality ("Application") collects, uses, stores, and discloses information, including Health Data. The Application is provided by Wastlund Software Solutions, LLC ("Service Provider"). It covers the iOS and Android apps.</p>
 
-            <h2>Health Data We Access and Collect</h2>
-            <p>Operation Vitality is a workout tracking application. The app collects Health and fitness data that you create and enter in the app, including:</p>
+            <h2>Summary</h2>
             <ul>
-                <li>Workout and fitness activity records you create in the app (for example: workout name, exercise name, sets, reps, weight, duration, distance, speed, intensity, notes, and workout dates/times).</li>
+                <li>You can use Operation Vitality without an account. Without an account, everything you enter stays on your device.</li>
+                <li>On iOS, you can create an optional account to back up your workouts and sync them between devices. The Android app does not offer accounts yet, so on Android your data stays on your device.</li>
+                <li>We do not sell your data, show ads, track you across apps or websites, or use analytics or crash-reporting services.</li>
+                <li>You can delete your account, and the workout data synced to it, from inside the app at any time.</li>
             </ul>
-            <p>The app does not currently read Health Data from, or write Health Data to, platform health providers such as Health Connect, Google Fit, or Apple Health.</p>
-            <p>Health Data is collected and used only to provide health and fitness features in the app. We do not use Health Data for advertising.</p>
 
-            <h2>How We Use Health Data</h2>
-            <p>We use Health Data only for purposes that support the core app experience, including:</p>
+            <h2>Information You Enter</h2>
+            <p>Operation Vitality is a workout tracking application. It stores the Health and fitness data that you create and enter in the app, including:</p>
             <ul>
-                <li>Creating, editing, and displaying your workouts and exercise history.</li>
-                <li>Showing progress, trends, and comparisons between workouts/exercises.</li>
-                <li>Providing core app functionality and preserving your data on your device.</li>
+                <li>Workouts and their exercises and sets: workout names, exercise names, weight, reps, duration, rest, distance and speed with their units, intensity, notes, supersets, exercise order, and workout dates and times.</li>
+                <li>Templates you create.</li>
+                <li>Custom exercise guides you create or copy from a starter guide.</li>
             </ul>
+            <p>The app does not read Health Data from, or write Health Data to, platform health services such as Apple Health, Health Connect, or Google Fit.</p>
+
+            <h2>Optional Account (iOS)</h2>
+            <p>If you create an account, we collect:</p>
+            <ul>
+                <li><strong>Your email address and password.</strong> They are used to sign you in, to reset your password, and to confirm your identity before your account is deleted. Your password is handled by Firebase Authentication. We never see or store it.</li>
+                <li><strong>An account identifier.</strong> Firebase assigns your account a random user ID. Your synced data is stored under that ID.</li>
+                <li><strong>Your synced workout data.</strong> While you are signed in, the information described in "Information You Enter" is uploaded to your account so it can be backed up and kept the same on each device where you sign in. Each record also carries the times it was created and last changed.</li>
+            </ul>
+            <p>When you sign in on a device that already has workouts, the app asks whether to add that data to your account or keep it on the device only. If you sign out and choose to keep your data, it stays on that device and is no longer synced.</p>
+
+            <h2>How We Use Information</h2>
+            <p>We use this information only to provide the app's features:</p>
+            <ul>
+                <li>Creating, editing, and displaying your workouts, templates, and exercise history.</li>
+                <li>Showing progress, trends, and comparisons between workouts and exercises.</li>
+                <li>If you have an account, signing you in and keeping your data backed up and in sync across your devices.</li>
+            </ul>
+            <p>We do not use your information for advertising, and we do not use Health Data for marketing.</p>
+
+            <h2>Service Providers</h2>
+            <p>Accounts and sync use Google Firebase, a service provided by Google LLC. Firebase Authentication manages sign-in, and Cloud Firestore stores synced workout data. Google processes this information on our behalf to provide these services and, to run and secure them, may process technical information such as your IP address. See the <a href="https://firebase.google.com/support/privacy">Firebase privacy information</a>.</p>
+            <p>The app downloads exercise guide text and images from GitHub-hosted URLs. Those downloads do not include any of your information.</p>
 
             <h2>Data Sharing and Disclosure</h2>
             <p>We do not sell your personal data or Health Data.</p>
-            <p>We do not share Health Data with third parties for advertising or marketing.</p>
-            <p>We may disclose information only in limited cases such as:</p>
-            <ul>
-                <li>When required by applicable law, regulation, legal process, or to protect rights, safety, and security.</li>
-            </ul>
+            <p>We do not share your information with third parties for advertising or marketing.</p>
+            <p>Other than the service providers above, we disclose information only when required by applicable law, regulation, or legal process, or to protect rights, safety, and security.</p>
 
             <h2>Storage and Security</h2>
-            <p>Workout and Health Data entered in Operation Vitality is stored locally on your device. We apply reasonable safeguards designed to protect information against unauthorized access, alteration, disclosure, or destruction.</p>
+            <p>Data you enter is stored on your device. If you have an account, your synced data is also stored in Cloud Firestore, in the United States (Google Cloud region us-west4, Las Vegas, Nevada). It is sent over encrypted connections, and access rules allow only your signed-in account to read or change it. We apply reasonable safeguards designed to protect information against unauthorized access, alteration, disclosure, or destruction.</p>
+
+            <h2>Data Retention and Deletion</h2>
+            <ul>
+                <li><strong>Without an account:</strong> your data stays on your device until you delete it in the app or uninstall the app.</li>
+                <li><strong>With an account:</strong> synced data is kept for as long as your account exists. When you delete a workout or another item, the app keeps a deletion record in your account so your other devices also remove the item. Those records are removed when you delete your account.</li>
+                <li><strong>Deleting your account:</strong> in the iOS app, open Settings, then Account, and choose Delete Account. After you confirm your password, the app permanently deletes all workout data synced to your account, deletes your account and email address from Firebase Authentication, and removes your account's data from that device. Another device signed in to the same account removes that data the next time it syncs.</li>
+                <li>If you cannot use the in-app option, for example because you no longer have the app, email <a href="mailto:operation.vitality@gmail.com">operation.vitality@gmail.com</a> from the email address on the account and ask us to delete it. We will delete your account and all workout data synced to it.</li>
+            </ul>
 
             <h2>Permissions and Your Choices</h2>
             <ul>
-                <li>You can control app permissions in your device settings.</li>
-                <li>You can uninstall the app to stop future collection by the app.</li>
+                <li>An account is optional. You can use every workout-tracking feature without one.</li>
+                <li>You can sign out at any time and choose whether to keep your data on that device.</li>
+                <li>You can control app permissions in your device settings. The app does not request location, contacts, camera, or microphone access.</li>
             </ul>
-
-            <h2>Data Retention and Deletion</h2>
-            <p>Because data is stored locally on your device, retention is primarily controlled by you. You can delete workout content from within the app or uninstall the app to remove local app data. You may also contact us at operation.vitality@gmail.com with privacy questions.</p>
-
-            <h2>Other Information</h2>
-            <p>The app downloads exercise guide content and images from GitHub-hosted URLs to provide in-app exercise guides. The app does not collect precise location data for core functionality.</p>
 
             <h2>Children</h2>
             <p>The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13.</p>
 
             <p>The Application does not address anyone under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children under 13 years of age. If you are a parent or guardian and you believe your child has provided personal information, please contact the Service Provider (operation.vitality@gmail.com) so appropriate action can be taken.</p>
 
-            <h2>Security</h2>
-            <p>The Service Provider is concerned about safeguarding your information and uses reasonable safeguards to protect information processed by the Application.</p>
-
             <h2>Changes</h2>
-            <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p>
+            <p>This Privacy Policy may be updated from time to time. The Service Provider will notify you of changes by updating this page and its "Last Updated" date. You are advised to review this Privacy Policy regularly, as continued use is deemed approval of all changes.</p>
 
             <h2>Your Consent</h2>
             <p>By using the Application, you consent to the practices described in this Privacy Policy.</p>
 
             <h2>Contact Us</h2>
-            <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at operation.vitality@gmail.com.</p>
+            <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at <a href="mailto:operation.vitality@gmail.com">operation.vitality@gmail.com</a>.</p>
         </div>
     </main>
 
